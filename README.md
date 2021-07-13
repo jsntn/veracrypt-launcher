@@ -1,5 +1,7 @@
 A launcher created by Windows Batch Scripting that can be used to mount your VeraCrypt Volume quickly.
 
+### Introduction
+
 - The entries of this are `read-xxx.bat` and `write-xxx.bat`, edit them as your case may be
 - `xxx.NTFS.VC` is the VeraCrypt Volume, and its password here is `test`
 - `xxx.NTFS.VC.ini` is the configuration file, and `<VeraCrypt Volume>.ini` is the mandatory naming for specific Volume
@@ -11,7 +13,7 @@ A launcher created by Windows Batch Scripting that can be used to mount your Ver
   password=test  # The password for the VeraCrypt Volume. Input the password manually if omitted
   ```
 
-# Your Use Case
+### Your Use Case
 
 1. Crerate your own VeraCrypt Volume
 2. Prepare your Configuration File
