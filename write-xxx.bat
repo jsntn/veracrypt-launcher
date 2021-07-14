@@ -1,2 +1,5 @@
 @echo off
-CALL "%~dp0MAIN\mount.bat" write xxx.NTFS.VC
+
+SET volume=xxx.NTFS.VC
+
+CALL "%~dp0MAIN\mount.bat" write %volume%

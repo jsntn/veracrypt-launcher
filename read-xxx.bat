@@ -1,2 +1,5 @@
 @echo off
-CALL "%~dp0MAIN\mount.bat" read xxx.NTFS.VC
+
+SET volume=xxx.NTFS.VC
+
+CALL "%~dp0MAIN\mount.bat" read %volume%
