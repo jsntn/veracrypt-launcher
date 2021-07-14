@@ -1,4 +1,4 @@
-A launcher created by Windows Batch Scripting that can be used to mount your VeraCrypt Volume quickly.
+A launcher created by Windows Batch Scripting that can be used to run the program in your VeraCrypt Volume quickly.
 
 ### Introduction
 
