@@ -7,7 +7,7 @@ A launcher created by Windows Batch Scripting that can be used to mount your Ver
 - `xxx.NTFS.VC.ini` is the configuration file, and `<VeraCrypt Volume>.ini` is the mandatory naming for specific Volume
 - About the configuration in `xxx.NTFS.VC.ini`,
   ```bash
-  program=  # The absolute path of VeraCrypt. will use the built-in VeraCrypt program if omitted
+  program=  # The absolute path of VeraCrypt. Will use the built-in VeraCrypt program if omitted
   drive=T  # The Drive for the VeraCrypt Volume
   volume=xxx.NTFS.VC  # The VeraCrypt Volume name
   password=test  # The password for the VeraCrypt Volume. Input the password manually if omitted
@@ -19,3 +19,4 @@ A launcher created by Windows Batch Scripting that can be used to mount your Ver
 2. Prepare your Configuration File
 3. Store both of the Volume and its Configuration File in `data` folder
 4. Edit your Entries
+5. Use it from the entry as in your case
