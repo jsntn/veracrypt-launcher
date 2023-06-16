@@ -21,7 +21,11 @@ if %%a==password set password=%%b
 )
 
 IF DEFINED program (
-  REM JUST SKIP
+  IF "%program%"=="truecrypt" (
+    SET program=%parentDir%MAIN\TrueCrypt.exe
+  ) ELSE (
+    REM JUST SKIP
+  )
 ) ELSE (
   SET program=%parentDir%MAIN\VeraCrypt-x64.exe
 )
