@@ -14,6 +14,7 @@ A launcher created by Windows Batch Scripting that can be used to mount your Ver
               Note:
               1) Will use the built-in TrueCrypt program if 'truecrypt' is inputted
               2) Will use the built-in VeraCrypt program if omitted
+  drive=T  # The Drive for the VeraCrypt Volume. Assign the Drive Letter automatically if omitted
   volume=xxx.NTFS.VC  # The VeraCrypt Volume name
   password=test  # The password for the VeraCrypt Volume. Input the password manually if omitted
   ```

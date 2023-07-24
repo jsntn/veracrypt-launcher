@@ -15,23 +15,42 @@ IF "%mode%"=="write" (
   SET mode=ts
 )
 
-for %%l in (%letters%) do (
-  echo checking %%l...
-  wmic logicaldisk where "name='%%l:'" get name | findstr /i "%%l" > nul
-  if errorlevel 1 (
-    SET availDrive=%%l
-    goto break
-  )
-)
-:break
-
-echo Available Drive Letter is: %availDrive%
-
 for /f "tokens=1,2 delims==" %%a in (%parentDir%data\%config%) do (
 if %%a==program set program=%%b
+if %%a==drive set drive=%%b
 if %%a==volume set volume=%%b
 if %%a==password set password=%%b
 )
+
+IF DEFINED drive (
+  echo Checking %drive%...
+  wmic logicaldisk where "name='%drive%:'" get name 2>nul | findstr /i "%drive%" > nul
+  if errorlevel 1 (
+    echo %drive% is available to use
+    goto manualDrive
+  ) else (
+    echo %drive% is used, about to exit...
+    PAUSE
+  )
+) ELSE (
+  echo No drive specified, go to assign Drive Letter automatically...
+  goto assignDrive
+)
+
+:assignDrive
+for %%l in (%letters%) do (
+  echo Checking %%l...
+  wmic logicaldisk where "name='%%l:'" get name 2>nul | findstr /i "%%l" > nul
+  if errorlevel 1 (
+    SET drive=%%l
+    goto break
+  )
+)
+
+:break
+echo Available Drive Letter is: %drive%
+
+:manualDrive
 
 IF DEFINED program (
   IF "%program%"=="truecrypt" (
@@ -44,7 +63,7 @@ IF DEFINED program (
 )
 
 IF DEFINED password (
-%program% /l %availDrive% /m %mode% /v "%parentDir%data\%volume%" /a /p %password%
+%program% /l %drive% /m %mode% /v "%parentDir%data\%volume%" /a /p %password%
 ) ELSE (
-%program% /l %availDrive% /m %mode% /v "%parentDir%data\%volume%" /a
+%program% /l %drive% /m %mode% /v "%parentDir%data\%volume%" /a
 )
