@@ -1,4 +1,4 @@
-# Windows Veracrypt Volume Launcher
+# Windows VeraCrypt Volume Launcher
 
 A launcher created by Windows Batch Scripting that can be used to mount your VeraCrypt Volume quickly.
 
