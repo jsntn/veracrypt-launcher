@@ -7,7 +7,7 @@ SET mode=%1
 SET config=%2.ini
 SET volume=%2
 
-SET letters=A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+SET letters=D E F G H I J K L M N O P Q R S T U V W X Y Z
 
 IF "%mode%"=="read" (
   SET mode=ro
@@ -24,8 +24,7 @@ if %%a==password set password=%%b
 
 IF DEFINED drive (
   echo Checking %drive%...
-  wmic logicaldisk where "name='%drive%:'" get name 2>nul | findstr /i "%drive%" > nul
-  if errorlevel 1 (
+  if not exist "%drive%:\" (
     echo %drive% is available to use
     goto manualDrive
   ) else (
@@ -40,11 +39,8 @@ IF DEFINED drive (
 :assignDrive
 for %%l in (%letters%) do (
   echo Checking %%l...
-  wmic logicaldisk where "name='%%l:'" get name 2>nul | findstr /i "%%l" > nul
-  if errorlevel 1 (
-    SET drive=%%l
-    goto break
-  )
+  if not exist "%%l:\" set "drive=%%l"
+  goto :break
 )
 
 :break
